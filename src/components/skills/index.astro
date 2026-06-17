@@ -1,0 +1,97 @@
+---
+import { CodeXml, Database, Server, Cloud, Brain, Layout, TestTube, Terminal, type AstroComponent } from "@lucide/astro";
+import SectionTitle from "../shared/section-title.astro";
+import Section from "../shared/section.astro";
+
+interface SkillCategory {
+  name: string;
+  icon: AstroComponent;
+  skills: string[];
+  color: string;
+}
+
+const skillCategories: SkillCategory[] = [
+  {
+    name: "Frontend",
+    icon: Layout,
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Astro"],
+    color: "text-primary"
+  },
+  {
+    name: "Backend",
+    icon: Server,
+    skills: ["NestJS", "Express.js", "FastAPI", "Node.js", "Python"],
+    color: "text-accent"
+  },
+  {
+    name: "Database & Cache",
+    icon: Database,
+    skills: ["PostgreSQL", "MongoDB", "Redis", "TypeORM", "Prisma"],
+    color: "text-green-400"
+  },
+  {
+    name: "ML & AI",
+    icon: Brain,
+    skills: ["SpaCy", "Pytorch", "Transformers", "NLP", "Python"],
+    color: "text-purple-400"
+  },
+  {
+    name: "DevOps & Cloud",
+    icon: Cloud,
+    skills: ["Docker", "GitHub Actions", "GCP"],
+    color: "text-blue-400"
+  },
+  {
+    name: "Tools",
+    icon: TestTube,
+    skills: ["Jest", "TanStack Query", "Redux-toolkit", "Git"],
+    color: "text-yellow-400"
+  }
+];
+---
+
+<Section id="skills" class="flex-col">
+  <SectionTitle title="nano ./skills.json" icon={CodeXml} />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
+    {skillCategories.map((category, idx) => {
+      const Icon = category.icon;
+      
+      return (
+        <div class="group bg-surface rounded-lg border border-primary/20 overflow-hidden hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+          {/* Header */}
+          <div class="bg-surface-2 px-4 py-3 border-b border-primary/20 flex items-center gap-2">
+            <Icon class={`w-4 h-4 ${category.color}`} />
+            <span class="font-mono text-sm font-semibold text-text-primary">{category.name}</span>
+            <span class="ml-auto text-[9px] px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-mono">
+              {category.skills.length}
+            </span>
+          </div>
+          
+          {/* Skills Grid */}
+          <div class="p-4">
+            <div class="flex flex-wrap gap-2">
+              {category.skills.map((skill) => (
+                <span class="px-2.5 py-1 text-[11px] font-mono rounded-md bg-primary/5 text-text-secondary border border-primary/20 hover:bg-primary/10 hover:border-primary/40 hover:text-text-primary transition-all duration-200">
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+          
+          {/* Footer */}
+<div class="bg-surface/30 px-4 py-1.5 border-t border-primary/20">
+  <div class="flex items-center gap-1 text-[9px] font-mono text-text-muted opacity-60">
+    <Terminal class="w-2.5 h-2.5" />
+    <span>$</span>
+    <span class="text-primary">
+      ./use --skill="{category.name.toLowerCase()}"
+    </span>
+  </div>
+</div>
+        </div>
+      );
+    })}
+  </div>
+
+</Section>

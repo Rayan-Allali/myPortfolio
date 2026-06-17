@@ -1,0 +1,23 @@
+---
+import Section from "../shared/section.astro";
+import AboutUser from "./about-user.astro";
+import UserProfile from "./user-profile.astro";
+---
+<Section id="">
+    <div class="absolute top-20 right-20 font-mono text-xs text-primary/20 hidden lg:block">
+        &lt;CODEX.ASTARTES /&gt;
+    </div>
+        <div class="absolute top-32 left-20 font-mono text-xs text-primary/15 hidden lg:block">
+        $ git init chapter-command
+    </div>
+     <div class="absolute bottom-20 left-40 font-mono text-xs text-accent/20 hidden lg:block">
+        "For Strength and honour. Code and deploy."
+    </div>
+     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-mono text-[10px] text-primary/20 hidden lg:block whitespace-nowrap z-1000">
+         &lt;Architect /&gt;
+    </div>
+    <div class="relative z-10 w-full mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <AboutUser/>
+            <UserProfile />
+    </div>
+</Section>

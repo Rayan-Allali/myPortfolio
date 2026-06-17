@@ -1,0 +1,29 @@
+---
+import type { NavItem } from "./sidebar.astro";
+
+interface Props {
+  navItems: Array<NavItem>;
+}
+
+const { navItems } = Astro.props;
+---
+
+<nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 border-t border-primary/20 bg-surface/95 backdrop-blur-md">
+  <div class="grid grid-cols-6 items-center px-2 py-2">
+    {navItems.map((item) => {
+      const Icon = item.icon;
+
+      return (
+        <a
+          href={item.link}
+          data-nav-link
+          data-section={item.link.replace("#", "")}
+          aria-label={item.title}
+          class="nav-link mobile-link w-10 h-10 flex items-center justify-center transition-all duration-200 rounded-lg mx-auto text-text-muted hover:text-text-primary border border-transparent"
+        >
+          <Icon class="w-4 h-4" />
+        </a>
+      );
+    })}
+  </div>
+</nav>

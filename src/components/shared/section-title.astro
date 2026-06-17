@@ -1,0 +1,21 @@
+---
+import type { AstroComponent } from '@lucide/astro';
+
+
+interface Props {
+  title: string;
+  icon: AstroComponent;
+  className?: string;
+}
+
+const { icon, title, className = '' } = Astro.props;
+const Icon = icon;
+
+---
+
+<div class={`flex items-center gap-2 w-full ${className} mb-4 md:mb-8 lg:mb-16`}>
+  <Icon size={24} class="text-primary shrink-0" />
+  <h2 class={`text-2xl lg:text-3xl font-bold tracking-tight flex gap-1`}>
+    <span class=" mr-1">$</span>{title}
+  </h2>
+</div>

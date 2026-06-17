@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+@theme {
+
+    /* colors */
+
+    /* Text */
+
+   --grid-color: rgba(230, 57, 70, 0.08); 
+
+
+        --color-primary: #e63946;      /* Blood Angel Red */
+    --color-primary-dim: #9b2226;   /* Dark Red */
+    
+    --color-accent: #f4a261;        /* Gold/Aquila */
+    --color-accent-dim: #e76f51;    /* Darker Gold */
+    
+    --color-surface: #1a1a2e;       /* Dark Gothic */
+    --color-surface-2: #0f0f1a;     /* Deeper Dark */
+    --color-bg: #0a0a0f;            /* Void Black */
+    
+    --color-text-primary: #e8e8e8;  /* Parchment White */
+    --color-text-secondary: #9a9a9a; /* Faded Steel */
+    --color-text-muted: #5a5a5a;    /* Dark Steel */
+
+    /* shadows */
+  --shadow-glow: 0 0 20px rgba(230, 57, 70, 0.4);        /* Changed from blue to red */
+--shadow-glow-hover: 0 0 30px rgba(230, 57, 70, 0.6); 
+}
+
+    .nav-link.active .desktop-ring {
+      opacity: 1;
+      transform: rotate(180deg) scale(1);
+    }
+
+    .nav-link.active .desktop-dot {
+      width: 2rem;
+      height: 2rem;
+      color: var(--color-primary);
+      border-color: rgb(230 57 70 / 0.5);
+      background-color: rgb(230 57 70 / 0.1);
+      box-shadow:
+        0 0 12px rgba(230,57,70,0.3),
+        0 0 18px rgba(230,57,70,0.4);
+    }
+
+    .nav-link.active .desktop-icon {
+ opacity: 1 !important;
+  transform: scale(1) !important;
+  width: 1rem !important;
+  height: 1rem !important;
+    }
+
+    .nav-link.active .tooltip-text {
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    .nav-link.active.mobile-link {
+      color: var(--color-primary);
+      border-color: rgb(230 57 70 / 0.3);
+      background-color: rgb(230 57 70 / 0.05);
+      box-shadow: 0 0 8px rgba(230,57,70,0.3);
+    }
+
+@layer components {
+  .section-padding {
+    @apply relative overflow-hidden min-h-screen px-4 py-12 md:px-6 md:py-16 lg:px-32 lg:py-20;
+  }
+}
+@keyframes blink {
+    0%, 100% { 
+        opacity: 1; 
+    }
+    50% { 
+        opacity: 0; 
+    }
+}
+
+.animate-blink {
+    animation: blink 1s step-end infinite;
+}
+ @keyframes ping {
+        75%, 100% {
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+    
+    .animate-ping {
+        animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+    }
+body {
+    font-family: "Space Grotesk", sans-serif;
+
+    background-color: var(--color-bg);
+
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+
+    background-size:
+        50px 50px,
+        50px 50px,
+        100% 100%,
+        100% 100%;
+    color: var(--color-text-primary);
+}
+  

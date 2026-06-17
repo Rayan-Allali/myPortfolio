@@ -1,0 +1,95 @@
+---
+import { Mail, Phone, Send } from "@lucide/astro";
+import SectionTitle from "../shared/section-title.astro";
+import Section from "../shared/section.astro";
+
+// Import SVGs from public folder
+import GithubIcon from "/public/github.svg?url";
+import LinkedinIcon from "/public/linkedin.svg?url";
+
+const contactLinks = [
+  {
+    name: "Email",
+    value: "rayanalllali@gmail.com",
+    icon: Mail,
+    url: "mailto:rayanalllali@gmail.com",
+    color: "text-primary",
+    type: "lucide"
+  },
+  {
+    name: "GitHub",
+    value: "@rayan-allali",
+    icon: GithubIcon,
+    url: "https://github.com/rayan-allali",
+    color: "text-accent",
+    type: "svg"
+  },
+  {
+    name: "LinkedIn",
+    value: "/in/rayan-allali",
+    icon: LinkedinIcon,
+    url: "https://linkedin.com/in/rayan-allali",
+    color: "text-primary",
+    type: "svg"
+  },
+  {
+    name: "WhatsApp",
+    value: "+213 542 969 587",
+    icon: Phone,
+    url: "https://wa.me/213542969587",
+    color: "text-green-400",
+    type: "lucide"
+  }
+];
+---
+
+<Section id="contact" class="flex-col">
+  <SectionTitle title="cat contact.md" icon={Mail} />
+
+  <div class="mt-8 text-center">
+    <p class="text-text-secondary text-sm font-mono mb-10">
+      <span class="text-primary">$</span> echo "Let's build something together" 
+      <span class="text-text-muted">|</span> <span class="animate-blink text-primary">_</span>
+    </p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
+      {contactLinks.map((link) => {
+        const Icon = link.icon;
+        const isSvg = link.type === "svg";
+        
+        return (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative bg-surface rounded-xl border border-primary/20 p-6 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div class="flex flex-col items-center gap-3">
+              <div class="p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                {isSvg ? (
+                  <img src={Icon as string} alt={link.name} class={`w-5 h-5 ${link.color}`} />
+                ) : (
+                  <Icon class={`w-5 h-5 ${link.color}`} />
+                )}
+              </div>
+              <div class="text-xs font-mono text-text-primary">{link.name}</div>
+              <div class="text-[9px] font-mono text-text-muted truncate max-w-20">
+                {link.value}
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+
+    <div class="mt-12 flex flex-wrap justify-center gap-4">
+      <a 
+        href="mailto:rayanalllali@gmail.com" 
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-primary/30 bg-primary/5 text-text-primary hover:bg-primary/10 hover:border-primary/50 transition-all"
+      >
+        <Send class="w-4 h-4 text-primary" />
+        <span class="font-mono text-sm">Send a message</span>
+      </a>
+    </div>
+  </div>
+</Section>

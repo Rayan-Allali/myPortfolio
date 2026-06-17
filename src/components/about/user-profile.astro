@@ -1,0 +1,116 @@
+---
+import { Terminal } from "@lucide/astro"
+
+const statusConfig = {
+    available: {
+        color: 'green',
+        badge: 'AVAILABLE FOR WORK',
+        title: 'Open for opportunities',
+        description: 'Ready for full-time roles or freelance projects.',
+        icon: '✅'
+    },
+    limited: {
+        color: 'yellow',
+        badge: 'LIMITED AVAILABILITY',
+        title: 'Part-time & Freelance',
+        description: 'Available for freelance, consulting, or small and specific tasks.',
+        icon: '⏳'
+    },
+    unavailable: {
+        color: 'red',
+        badge: 'UNAVAILABLE',
+        title: 'Fully Booked',
+        description: 'Currently focused on ongoing projects.',
+        icon: '🔴'
+    }
+}
+
+type WorkStatus = keyof typeof statusConfig
+const workStatus: { status: WorkStatus } = {
+    status: 'available',
+}
+
+const currentStatus = statusConfig[workStatus.status]
+const list = [
+    {
+        title: "whoami",
+        description: "Software Engineer specializing in full-stack systems, backend architecture, and scalable web applications.",
+                icon:'➜',
+                isStatus:false
+    },
+    {
+        title: "status --current",
+        description: `${currentStatus.badge} • ${currentStatus.title}`,
+        icon: '➜',
+        isStatus: true,
+        statusColor: currentStatus.color
+    },
+    {
+        title: "nano ./mission",
+        description: "Building scalable systems across frontend, backend, and cloud infrastructure with a focus on clean architecture and production reliability",
+        icon:'$',
+         isStatus:false
+    }
+]
+---
+
+ <div class="bg-surface rounded-lg border border-primary/20 text-sm shadow-xl overflow-hidden group hover:border-primary/40 transition-colors">
+    
+    <div class="bg-surface px-4 py-2 flex items-center gap-2 border-b border-primary/20">
+      <Terminal class="w-3.5 text-primary" />
+      <p class="text-text-secondary">user.profile</p>
+    </div>
+    
+    <div class="p-6 text-text-primary leading-relaxed space-y-4 font-mono" id="terminal-content">
+      {list.map((item,idx) => (
+        <div class="terminal-item transition-all duration-300">
+          <p>
+            <span class="text-primary">{item.icon}</span> 
+            <span class="text-accent ml-2">{item.title}</span>
+          </p>
+         
+          {item.isStatus ? (
+                    <div class="pl-4 mt-2 border-l-2 border-primary/20">
+                        <div class="flex items-center gap-2">
+                            <span class={`
+                                relative flex h-2 w-2
+                                ${item.statusColor === 'green' ? 'text-green-400' : ''}
+                                ${item.statusColor === 'yellow' ? 'text-yellow-400' : ''}
+                                ${item.statusColor === 'red' ? 'text-red-400' : ''}
+                            `}>
+                                <span class={`
+                                    absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping
+                                    ${item.statusColor === 'green' ? 'bg-green-400' : ''}
+                                    ${item.statusColor === 'yellow' ? 'bg-yellow-400' : ''}
+                                    ${item.statusColor === 'red' ? 'bg-red-400' : ''}
+                                `}></span>
+                                <span class={`
+                                    relative inline-flex rounded-full h-2 w-2
+                                    ${item.statusColor === 'green' ? 'bg-green-500' : ''}
+                                    ${item.statusColor === 'yellow' ? 'bg-yellow-500' : ''}
+                                    ${item.statusColor === 'red' ? 'bg-red-500' : ''}
+                                `}></span>
+                            </span>
+                            <span class="text-xs text-text-secondary">{item.description}</span>
+                        </div>
+                        <div class="text-xs text-text-muted mt-1 pl-4">
+                            {currentStatus.description}
+                        </div>
+                    </div>
+                ) : idx !== list.length - 1 ? (
+                    <p class="pl-4 mt-2 border-l-2 border-primary/20 text-text-secondary">
+                        {item.description}
+                    </p>
+                ) : (
+                    <p class="pl-4 mt-2 border-l-2 border-primary/20 text-text-secondary">
+                        <span>{item.description}</span>
+                        <span class="text-primary animate-blink">_</span>
+                    </p>
+                )}
+        </div>
+      ))}
+      
+      
+    </div>
+    
+  </div>
