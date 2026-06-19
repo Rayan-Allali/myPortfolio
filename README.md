@@ -6,7 +6,7 @@
 
 ## 🌐 Live Demo
 
-**[View Portfolio →](https://rayanallali.github.io/myPortfolio)**
+**[View Portfolio →](https://rayan-allali.github.io/myPortfolio/)**
 
 ## ✨ Features
 
