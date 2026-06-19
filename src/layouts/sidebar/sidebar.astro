@@ -1,30 +1,30 @@
 ---
 import {
-  Cpu,
-  CodeXml,
-  GitMerge,
-  Radio,
-  GraduationCap,
-  Folder,
-  type AstroComponent
+	Cpu,
+	CodeXml,
+	GitMerge,
+	Radio,
+	GraduationCap,
+	Folder,
+	type AstroComponent,
 } from "@lucide/astro";
 
 import SidebarDesktop from "./sideBarDesktop.astro";
 import SideBarMobile from "./sidebarMobile.astro";
 
 export interface NavItem {
-  title: string;
-  link: string;
-  icon: AstroComponent;
+	title: string;
+	link: string;
+	icon: AstroComponent;
 }
 
 export const navItems: NavItem[] = [
-  { title: "About", link: "#", icon: Cpu },
-  { title: "Skills", link: "#skills", icon: CodeXml },
-  { title: "Experience", link: "#experience", icon: GitMerge },
-  { title: "Projects", link: "#projects", icon: Folder },
-  { title: "Education", link: "#education", icon: GraduationCap },
-  { title: "Contact", link: "#contact", icon: Radio }
+	{ title: "About", link: "#", icon: Cpu },
+	{ title: "Skills", link: "#skills", icon: CodeXml },
+	{ title: "Experience", link: "#experience", icon: GitMerge },
+	{ title: "Projects", link: "#projects", icon: Folder },
+	{ title: "Education", link: "#education", icon: GraduationCap },
+	{ title: "Contact", link: "#contact", icon: Radio },
 ];
 ---
 

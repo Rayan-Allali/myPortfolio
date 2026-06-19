@@ -1,84 +1,101 @@
 ---
-import { FolderOpen, Code, Brain, Package, Trophy, Database, GitBranch, ExternalLink, ChevronRight, Users, Building2 } from "@lucide/astro";
+import {
+	FolderOpen,
+	Code,
+	Brain,
+	Package,
+	Trophy,
+	Database,
+	GitBranch,
+	ExternalLink,
+	ChevronRight,
+	Users,
+	Building2,
+} from "@lucide/astro";
 import SectionTitle from "../shared/section-title.astro";
 import Section from "../shared/section.astro";
 import { GITHUB_PROFILE } from "../../const/links";
 
 interface Project {
-  name: string;
-  description: string;
-  technologies: string[];
-  category: "fullstack" | "ai" | "opensource" | "contributor" | "all";
-  demoLink?: string;
-  githubLink?: string;
-  isPrivate: boolean;
-  contribution?: string;
-  language?: string;
-  gdgProject?: boolean;
-  isPinned?:boolean
+	name: string;
+	description: string;
+	technologies: string[];
+	category: "fullstack" | "ai" | "opensource" | "contributor" | "all";
+	demoLink?: string;
+	githubLink?: string;
+	isPrivate: boolean;
+	contribution?: string;
+	language?: string;
+	gdgProject?: boolean;
+	isPinned?: boolean;
 }
 
 const projects: Project[] = [
-  {
-    name: "Nest-Init CLI",
-    description: "CLI tool that automates NestJS project setup and configuration. Helps quickly scaffold new projects with REST APIs, GraphQL services, or database integrations.",
-    technologies: ["TypeScript", "NestJS", "Node.js", "CLI", "npm"],
-    category: "opensource",
-    githubLink: "https://github.com/GDGAlgiers/nest-init-cli",
-    isPrivate: false,
-    contribution: "Contributor",
-    language: "TypeScript",
-    gdgProject: true,
-    isPinned:true
-  },
-  {
-    name: "Web Navigation Package",
-    description: "Navigation utility package for web applications, providing seamless routing and navigation utilities.",
-    technologies: ["TypeScript", "React", "Next.js", "npm"],
-    category: "opensource",
-    githubLink: "https://github.com/GDGAlgiers/web-navigation-package",
-    isPrivate: false,
-    contribution: "Contributor",
-    language: "TypeScript",
-    gdgProject: true,
-     isPinned:true
-  },
-  {
-    name: "GCPC Challenges 2024",
-    description: "Competitive programming challenges for GCPC 2024. Contributed problem statements and test cases.",
-    technologies: ["Problem Solving", "Algorithms", "C++", "Python"],
-    category: "contributor",
-    githubLink: "https://github.com/GDGAlgiers/GCPC-Challenges",
-    isPrivate: false,
-    contribution: "Challenge author",
-    gdgProject: true
-  },
-  {
-    name: "GLP Platform",
-    description: "GLP (GDG Learning Platform) is a community driven initiative designed to make tech education accessible to everyone.",
-    technologies: ["NestJS", "TypeScript", "PostgreSQL", "TypeORM", "JWT"],
-    category: "fullstack",
-    demoLink: "https://glp.gdgalgiers.dev",
-    isPrivate: false,
-    contribution: "Contributor",
-    language: "TypeScript",
-    gdgProject: true,
-    isPinned:true
-  },
-  {
-    name: "DDI Extraction",
-    description: "Drug drug interaction extraction system using BioBERT and GAT Network . Academic project",
-    technologies: ["Python", "FastAPI", "BioBERT", "Transformers", "Machine Learning", "NLP"],
-    category: "ai",
-    isPrivate: true,
-    gdgProject: false,
-    language:'Python',
-    isPinned:false
-  },
+	{
+		name: "Nest-Init CLI",
+		description:
+			"CLI tool that automates NestJS project setup and configuration. Helps quickly scaffold new projects with REST APIs, GraphQL services, or database integrations.",
+		technologies: ["TypeScript", "NestJS", "Node.js", "CLI", "npm"],
+		category: "opensource",
+		githubLink: "https://github.com/GDGAlgiers/nest-init-cli",
+		isPrivate: false,
+		contribution: "Contributor",
+		language: "TypeScript",
+		gdgProject: true,
+		isPinned: true,
+	},
+	{
+		name: "Web Navigation Package",
+		description:
+			"Navigation utility package for web applications, providing seamless routing and navigation utilities.",
+		technologies: ["TypeScript", "React", "Next.js", "npm"],
+		category: "opensource",
+		githubLink: "https://github.com/GDGAlgiers/web-navigation-package",
+		isPrivate: false,
+		contribution: "Contributor",
+		language: "TypeScript",
+		gdgProject: true,
+		isPinned: true,
+	},
+	{
+		name: "GCPC Challenges 2024",
+		description:
+			"Competitive programming challenges for GCPC 2024. Contributed problem statements and test cases.",
+		technologies: ["Problem Solving", "Algorithms", "C++", "Python"],
+		category: "contributor",
+		githubLink: "https://github.com/GDGAlgiers/GCPC-Challenges",
+		isPrivate: false,
+		contribution: "Challenge author",
+		gdgProject: true,
+	},
+	{
+		name: "GLP Platform",
+		description:
+			"GLP (GDG Learning Platform) is a community driven initiative designed to make tech education accessible to everyone.",
+		technologies: ["NestJS", "TypeScript", "PostgreSQL", "TypeORM", "JWT"],
+		category: "fullstack",
+		demoLink: "https://glp.gdgalgiers.dev",
+		isPrivate: false,
+		contribution: "Contributor",
+		language: "TypeScript",
+		gdgProject: true,
+		isPinned: true,
+	},
+	{
+		name: "DDI Extraction",
+		description:
+			"Drug drug interaction extraction system using BioBERT and GAT Network . Academic project",
+		technologies: ["Python", "FastAPI", "BioBERT", "Transformers", "Machine Learning", "NLP"],
+		category: "ai",
+		isPrivate: true,
+		gdgProject: false,
+		language: "Python",
+		isPinned: false,
+	},
 ];
 
-const gdgProjects = projects.filter(p => p.gdgProject === true);
-const pinnedProjects = projects.filter(p =>p.isPinned).slice(0, 4);
+const gdgProjects = projects.filter((p) => p.gdgProject === true);
+const pinnedProjects = projects.filter((p) => p.isPinned).slice(0, 4);
 ---
 
 <Section id="projects" class="flex-col">

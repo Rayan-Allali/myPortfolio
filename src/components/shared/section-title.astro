@@ -1,16 +1,14 @@
 ---
-import type { AstroComponent } from '@lucide/astro';
-
+import type { AstroComponent } from "@lucide/astro";
 
 interface Props {
-  title: string;
-  icon: AstroComponent;
-  className?: string;
+	title: string;
+	icon: AstroComponent;
+	className?: string;
 }
 
-const { icon, title, className = '' } = Astro.props;
+const { icon, title, className = "" } = Astro.props;
 const Icon = icon;
-
 ---
 
 <div class={`flex items-center gap-2 w-full ${className} mb-4 md:mb-8 lg:mb-16`}>

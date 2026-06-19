@@ -2,69 +2,101 @@
 import SectionTitle from "../shared/section-title.astro";
 import Section from "../shared/section.astro";
 import { GitBranch, Calendar, FileCode } from "@lucide/astro";
-import confirmooLogo from '/public/confirmoopdficon.png';
-import atlasLogo from '/public/atlasmarketspace_logo.jpg';
+import confirmooLogo from "/public/confirmoopdficon.png";
+import atlasLogo from "/public/atlasmarketspace_logo.jpg";
 
 export interface Experience {
-  startedAt: Date;
-  endedAt: Date | null;
-  company: string;
-  title: string;
-  details: string;
-  technologies: string[];
-  commitHash: string;
-  companyLogo?:string
+	startedAt: Date;
+	endedAt: Date | null;
+	company: string;
+	title: string;
+	details: string;
+	technologies: string[];
+	commitHash: string;
+	companyLogo?: string;
 }
 
 const experiences: Experience[] = [
-  {
-    companyLogo:confirmooLogo.src,
-    startedAt: new Date("2024-06-01"),
-    endedAt: new Date("2026-06-11"),
-    company: "Confirmoo",
-    title: "Fullstack Developer",
-    details: "Developed and managed an e-commerce management system that facilitated automation of orders through various sales channels with different delivery companies.",
-    technologies: ["React", "Next.js", "TypeScript", "Express.js", "GCP", "MongoDB", "Redis", "Jest", "TanStack Query", "Docker", "Jira"],
-    commitHash: "3f7a9e2"
-  },
-  {
-    startedAt: new Date("2024-02-01"),
-    endedAt: new Date("2024-06-01"),
-    company: "Freelance",
-    title: "Freelance",
-    details: "Developed and maintained web applications.",
-    technologies: ["React", "Next.js", "Node.js", "Express.js", "Nest.js", "TypeScript"],
-    commitHash: "533d164"
-  },
-  {
-  startedAt: new Date("2023-12-01"),
-  endedAt: new Date("2024-06-01"),
-  company: "Google Developer Groups Algiers (GDG)",
-  title: "Developer Community Manager",
-  details: "Led and coordinated development activities within GDG club, organized workshops, contributed to project direction and team coordination for internal initiatives.",
-  technologies: ["React", "Nest.js", "TypeScript", "Web Development" ,"Jest", "Express.js", "Next.js","JavaScript"],
-  commitHash: "gdg2023a"
-},
-  {
-     companyLogo:atlasLogo.src,
-    startedAt: new Date("2023-07-01"),
-    endedAt: new Date("2024-02-12"),
-    company: "Atlas Marketspace",
-    title: "Frontend → Fullstack Developer",
-    details: "Started with API integration, gradually took ownership of frontend features, and eventually expanded to full-stack development. Worked across the entire codebase using React, Next.js, Express.js, Firebase, and MongoDB.",
-    technologies: ["JavaScript", "React", "Next.js", "Node.js", "Express.js", "Firebase", "TypeScript"],
-    commitHash: "b4c8d1f"
-  }
+	{
+		companyLogo: confirmooLogo.src,
+		startedAt: new Date("2024-06-01"),
+		endedAt: new Date("2026-06-11"),
+		company: "Confirmoo",
+		title: "Fullstack Developer",
+		details:
+			"Developed and managed an e-commerce management system that facilitated automation of orders through various sales channels with different delivery companies.",
+		technologies: [
+			"React",
+			"Next.js",
+			"TypeScript",
+			"Express.js",
+			"GCP",
+			"MongoDB",
+			"Redis",
+			"Jest",
+			"TanStack Query",
+			"Docker",
+			"Jira",
+		],
+		commitHash: "3f7a9e2",
+	},
+	{
+		startedAt: new Date("2024-02-01"),
+		endedAt: new Date("2024-06-01"),
+		company: "Freelance",
+		title: "Freelance",
+		details: "Developed and maintained web applications.",
+		technologies: ["React", "Next.js", "Node.js", "Express.js", "Nest.js", "TypeScript"],
+		commitHash: "533d164",
+	},
+	{
+		startedAt: new Date("2023-12-01"),
+		endedAt: new Date("2024-06-01"),
+		company: "Google Developer Groups Algiers",
+		title: "Developer Community Manager",
+		details:
+			"Led and coordinated development activities within GDG club, organized workshops, contributed to project direction and team coordination for internal initiatives.",
+		technologies: [
+			"React",
+			"Nest.js",
+			"TypeScript",
+			"Web Development",
+			"Jest",
+			"Express.js",
+			"Next.js",
+			"JavaScript",
+		],
+		commitHash: "gdg2023a",
+	},
+	{
+		companyLogo: atlasLogo.src,
+		startedAt: new Date("2023-07-01"),
+		endedAt: new Date("2024-02-12"),
+		company: "Atlas Marketspace",
+		title: "Frontend → Fullstack Developer",
+		details:
+			"Started with API integration, gradually took ownership of frontend features, and eventually expanded to full-stack development. Worked across the entire codebase using React, Next.js, Express.js, Firebase, and MongoDB.",
+		technologies: [
+			"JavaScript",
+			"React",
+			"Next.js",
+			"Node.js",
+			"Express.js",
+			"Firebase",
+			"TypeScript",
+		],
+		commitHash: "b4c8d1f",
+	},
 ];
 
 const formatDate = (date: Date): string => {
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+	return date.toLocaleDateString("en-US", { year: "numeric", month: "short" });
 };
 
 const getDateRange = (exp: Experience): string => {
-  const start = formatDate(exp.startedAt);
-  const end = exp.endedAt ? formatDate(exp.endedAt) : 'Present';
-  return `${start} - ${end}`;
+	const start = formatDate(exp.startedAt);
+	const end = exp.endedAt ? formatDate(exp.endedAt) : "Present";
+	return `${start} - ${end}`;
 };
 ---
 

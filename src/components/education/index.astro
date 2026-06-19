@@ -3,50 +3,55 @@ import { GraduationCap, Calendar, MapPin, Award, FileText, ExternalLink } from "
 import SectionTitle from "../shared/section-title.astro";
 import Section from "../shared/section.astro";
 interface Education {
-  degree: string;
-  field: string;
-  institution: string;
-  location: string;
-  startDate: Date;
-  endDate: Date | null;
-  description?: string;
-  achievements?: Array<{ text: string; link?: string }>; // Changed to support links
+	degree: string;
+	field: string;
+	institution: string;
+	location: string;
+	startDate: Date;
+	endDate: Date | null;
+	description?: string;
+	achievements?: Array<{ text: string; link?: string }>; // Changed to support links
 }
 
 const educations: Education[] = [
-  {
-    degree: "Master's Degree",
-    field: "Bioinformatics",
-    institution: "USTHB (University of Science and Technology Houari Boumediene)",
-    location: "Algiers, Algeria",
-    startDate: new Date("2023-09-01"),
-    endDate: new Date("2025-07-01"),
-    description: "Focused on Machine Learning, Deep Learning, and Data Science. Studied data mining techniques, AI algorithms.",
-    achievements: [
-      { text: "Thesis: Drug-Drug Interaction Extraction" },
-      { text: "Research Paper", link: 'https://drive.google.com/file/d/1tB1BGKfIDLL5VtEz7EaiSfx3cMFnWelI/view?usp=sharing' }
-    ]
-  },
-  {
-    degree: "Bachelor's Degree",
-    field: "Software and Information Systems Engineering",
-    institution: "ISIL - USTHB",
-    location: "Algiers, Algeria",
-    startDate: new Date("2020-09-01"),
-    endDate: new Date("2023-06-01"),
-    description: "Software engineering foundation with focus on information systems, algorithms, and software development methodologies",
-    achievements: []
-  }
+	{
+		degree: "Master's Degree",
+		field: "Bioinformatics",
+		institution: "USTHB (University of Science and Technology Houari Boumediene)",
+		location: "Algiers, Algeria",
+		startDate: new Date("2023-09-01"),
+		endDate: new Date("2025-07-01"),
+		description:
+			"Focused on Machine Learning, Deep Learning, and Data Science. Studied data mining techniques, AI algorithms.",
+		achievements: [
+			{ text: "Thesis: Drug-Drug Interaction Extraction" },
+			{
+				text: "Research Paper",
+				link: "https://drive.google.com/file/d/1tB1BGKfIDLL5VtEz7EaiSfx3cMFnWelI/view?usp=sharing",
+			},
+		],
+	},
+	{
+		degree: "Bachelor's Degree",
+		field: "Software and Information Systems Engineering",
+		institution: "ISIL - USTHB",
+		location: "Algiers, Algeria",
+		startDate: new Date("2020-09-01"),
+		endDate: new Date("2023-06-01"),
+		description:
+			"Software engineering foundation with focus on information systems, algorithms, and software development methodologies",
+		achievements: [],
+	},
 ];
 
 const formatDate = (date: Date): string => {
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
+	return date.toLocaleDateString("en-US", { year: "numeric", month: "short" });
 };
 
 const getDateRange = (edu: Education): string => {
-  const start = formatDate(edu.startDate);
-  const end = edu.endDate ? formatDate(edu.endDate) : 'Present';
-  return `${start} - ${end}`;
+	const start = formatDate(edu.startDate);
+	const end = edu.endDate ? formatDate(edu.endDate) : "Present";
+	return `${start} - ${end}`;
 };
 ---
 

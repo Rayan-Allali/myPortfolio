@@ -1,57 +1,59 @@
 ---
-import { Terminal } from "@lucide/astro"
+import { Terminal } from "@lucide/astro";
 
 const statusConfig = {
-    available: {
-        color: 'green',
-        badge: 'AVAILABLE FOR WORK',
-        title: 'Open for opportunities',
-        description: 'Ready for full-time roles or freelance projects.',
-        icon: '✅'
-    },
-    limited: {
-        color: 'yellow',
-        badge: 'LIMITED AVAILABILITY',
-        title: 'Part-time & Freelance',
-        description: 'Available for freelance, consulting, or small and specific tasks.',
-        icon: '⏳'
-    },
-    unavailable: {
-        color: 'red',
-        badge: 'UNAVAILABLE',
-        title: 'Fully Booked',
-        description: 'Currently focused on ongoing projects.',
-        icon: '🔴'
-    }
-}
+	available: {
+		color: "green",
+		badge: "AVAILABLE FOR WORK",
+		title: "Open for opportunities",
+		description: "Ready for full-time roles or freelance projects.",
+		icon: "✅",
+	},
+	limited: {
+		color: "yellow",
+		badge: "LIMITED AVAILABILITY",
+		title: "Part-time & Freelance",
+		description: "Available for freelance, consulting, or small and specific tasks.",
+		icon: "⏳",
+	},
+	unavailable: {
+		color: "red",
+		badge: "UNAVAILABLE",
+		title: "Fully Booked",
+		description: "Currently focused on ongoing projects.",
+		icon: "🔴",
+	},
+};
 
-type WorkStatus = keyof typeof statusConfig
+type WorkStatus = keyof typeof statusConfig;
 const workStatus: { status: WorkStatus } = {
-    status: 'available',
-}
+	status: "available",
+};
 
-const currentStatus = statusConfig[workStatus.status]
+const currentStatus = statusConfig[workStatus.status];
 const list = [
-    {
-        title: "whoami",
-        description: "Software Engineer specializing in full-stack systems, backend architecture, and scalable web applications.",
-                icon:'➜',
-                isStatus:false
-    },
-    {
-        title: "status --current",
-        description: `${currentStatus.badge} • ${currentStatus.title}`,
-        icon: '➜',
-        isStatus: true,
-        statusColor: currentStatus.color
-    },
-    {
-        title: "nano ./mission",
-        description: "Building scalable systems across frontend, backend, and cloud infrastructure with a focus on clean architecture and production reliability",
-        icon:'$',
-         isStatus:false
-    }
-]
+	{
+		title: "whoami",
+		description:
+			"Software Engineer specializing in full-stack systems, backend architecture, and scalable web applications.",
+		icon: "➜",
+		isStatus: false,
+	},
+	{
+		title: "status --current",
+		description: `${currentStatus.badge} • ${currentStatus.title}`,
+		icon: "➜",
+		isStatus: true,
+		statusColor: currentStatus.color,
+	},
+	{
+		title: "nano ./mission",
+		description:
+			"Building scalable systems across frontend, backend, and cloud infrastructure with a focus on clean architecture and production reliability",
+		icon: "$",
+		isStatus: false,
+	},
+];
 ---
 
  <div class="bg-surface rounded-lg border border-primary/20 text-sm shadow-xl overflow-hidden group hover:border-primary/40 transition-colors">

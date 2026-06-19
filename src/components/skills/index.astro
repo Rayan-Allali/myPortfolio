@@ -1,52 +1,62 @@
 ---
-import { CodeXml, Database, Server, Cloud, Brain, Layout, TestTube, Terminal, type AstroComponent } from "@lucide/astro";
+import {
+	CodeXml,
+	Database,
+	Server,
+	Cloud,
+	Brain,
+	Layout,
+	TestTube,
+	Terminal,
+	type AstroComponent,
+} from "@lucide/astro";
 import SectionTitle from "../shared/section-title.astro";
 import Section from "../shared/section.astro";
 
 interface SkillCategory {
-  name: string;
-  icon: AstroComponent;
-  skills: string[];
-  color: string;
+	name: string;
+	icon: AstroComponent;
+	skills: string[];
+	color: string;
 }
 
 const skillCategories: SkillCategory[] = [
-  {
-    name: "Frontend",
-    icon: Layout,
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Astro"],
-    color: "text-primary"
-  },
-  {
-    name: "Backend",
-    icon: Server,
-    skills: ["NestJS", "Express.js", "FastAPI", "Node.js", "Python"],
-    color: "text-accent"
-  },
-  {
-    name: "Database & Cache",
-    icon: Database,
-    skills: ["PostgreSQL", "MongoDB", "Redis", "TypeORM", "Prisma"],
-    color: "text-green-400"
-  },
-  {
-    name: "ML & AI",
-    icon: Brain,
-    skills: ["SpaCy", "Pytorch", "Transformers", "NLP", "Python"],
-    color: "text-purple-400"
-  },
-  {
-    name: "DevOps & Cloud",
-    icon: Cloud,
-    skills: ["Docker", "GitHub Actions", "GCP"],
-    color: "text-blue-400"
-  },
-  {
-    name: "Tools",
-    icon: TestTube,
-    skills: ["Jest", "TanStack Query", "Redux-toolkit", "Git"],
-    color: "text-yellow-400"
-  }
+	{
+		name: "Frontend",
+		icon: Layout,
+		skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Astro"],
+		color: "text-primary",
+	},
+	{
+		name: "Backend",
+		icon: Server,
+		skills: ["NestJS", "Express.js", "FastAPI", "Node.js", "Python"],
+		color: "text-accent",
+	},
+	{
+		name: "Database & Cache",
+		icon: Database,
+		skills: ["PostgreSQL", "MongoDB", "Redis", "TypeORM", "Prisma"],
+		color: "text-green-400",
+	},
+	{
+		name: "ML & AI",
+		icon: Brain,
+		skills: ["SpaCy", "Pytorch", "Transformers", "NLP", "Python"],
+		color: "text-purple-400",
+	},
+	{
+		name: "DevOps & Cloud",
+		icon: Cloud,
+		skills: ["Docker", "GitHub Actions", "GCP"],
+		color: "text-blue-400",
+	},
+	{
+		name: "Tools",
+		icon: TestTube,
+		skills: ["Jest", "TanStack Query", "Redux-toolkit", "Git"],
+		color: "text-yellow-400",
+	},
 ];
 ---
 
