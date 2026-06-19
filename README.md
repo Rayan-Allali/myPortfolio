@@ -23,5 +23,3 @@
 - **Icons:** [Lucide Icons](https://lucide.dev)
 - **Deployment:** GitHub Pages
 - **Package Manager:** pnpm
-
-## 📁 Project Structure
