@@ -8,14 +8,6 @@
 
 **[View Portfolio →](https://rayan-allali.github.io/myPortfolio/)**
 
-## ✨ Features
-
-- 🎨 **Dark & Gothic Design** -
-- 📱 **Fully Responsive** - Looks great on all devices
-- 🧭 **Smooth Navigation** - Interactive sidebar with animated indicators
-- ⚡ **Fast & Performant** - Built with Astro for optimal performance
-- 🎯 **Section Tracking** - Active section highlighting
-
 ## 🛠️ Tech Stack
 
 - **Framework:** [Astro](https://astro.build) 6.x
@@ -23,5 +15,3 @@
 - **Icons:** [Lucide Icons](https://lucide.dev)
 - **Deployment:** GitHub Pages
 - **Package Manager:** pnpm
-
-## 📁 Project Structure

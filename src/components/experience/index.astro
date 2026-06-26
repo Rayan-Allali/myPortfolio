@@ -3,6 +3,7 @@ import SectionTitle from "../shared/section-title.astro";
 import Section from "../shared/section.astro";
 import { GitBranch, Calendar, FileCode } from "@lucide/astro";
 import confirmooLogo from "/public/confirmoopdficon.png";
+import sonalgazLogo from "/public/sonalgaz.png";
 import atlasLogo from "/public/atlasmarketspace_logo.jpg";
 
 export interface Experience {
@@ -24,7 +25,7 @@ const experiences: Experience[] = [
 		company: "Confirmoo",
 		title: "Fullstack Developer",
 		details:
-			"Developed and managed an e-commerce management system that facilitated automation of orders through various sales channels with different delivery companies.",
+			"Developed and managed the admin dashboard, Super Admin portal, and backend APIs for e-commerce management system that facilitated automation of orders through various sales channels with different delivery companies. Also performed QA responsibilities including creating Jira tickets, reporting bugs, and testing new features.",
 		technologies: [
 			"React",
 			"Next.js",
@@ -86,6 +87,25 @@ const experiences: Experience[] = [
 			"TypeScript",
 		],
 		commitHash: "b4c8d1f",
+	},
+	{
+		companyLogo: sonalgazLogo.src,
+		startedAt: new Date("2023-03-01"),
+		endedAt: new Date("2023-06-07"),
+		company: "OSE Sonalgaz",
+		title: "Software Engineering Intern",
+		details:
+			"Developed an industrial operations management platform using ASP.NET Core. Automated the generation of production, consumption, and operational reports from daily worksheets",
+		technologies: [
+			"JavaScript",
+			"PostgreSQL",
+			"C#",
+			"ASP.NET Core 6",
+			"Next.js",
+			"React",
+			"TypeScript",
+		],
+		commitHash: "d2f8c41",
 	},
 ];
 
