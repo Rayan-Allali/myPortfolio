@@ -47,6 +47,14 @@ const list = [
 		statusColor: currentStatus.color,
 	},
 	{
+		title: "cat ./freelance.status",
+		description:
+			"AUTO-ENTREPRENEUR REGISTERED • Available for formal freelance & contract engagements.",
+		icon: "$",
+		isFreelanceStatus: true,
+		isStatus: false,
+	},
+	{
 		title: "nano ./mission",
 		description:
 			"Building scalable systems across frontend, backend, and cloud infrastructure with a focus on clean architecture and production reliability",
@@ -99,7 +107,19 @@ const list = [
                             {currentStatus.description}
                         </div>
                     </div>
-                ) : idx !== list.length - 1 ? (
+                ) : item.isFreelanceStatus ? (
+					<div class="pl-4 mt-2 border-l-2 border-primary/20">
+						<div
+							class="inline-flex items-center gap-2 rounded-md border border-primary/20 bg-primary/5 px-2.5 py-1.5 text-xs text-primary transition-all duration-300 hover:border-primary/40 hover:bg-primary/10"
+						>
+							<span>{item.description.split(" • ")[0]}</span>
+						</div>
+
+						<div class="text-xs text-text-muted mt-2 pl-1">
+							{item.description.split(" • ")[1]}
+						</div>
+					</div>
+				) : idx !== list.length - 1 ? (
                     <p class="pl-4 mt-2 border-l-2 border-primary/20 text-text-secondary">
                         {item.description}
                     </p>

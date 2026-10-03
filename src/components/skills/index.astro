@@ -69,16 +69,12 @@ const skillCategories: SkillCategory[] = [
       
       return (
         <div class="group bg-surface rounded-lg border border-primary/20 overflow-hidden hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
-          {/* Header */}
+  
           <div class="bg-surface-2 px-4 py-3 border-b border-primary/20 flex items-center gap-2">
             <Icon class={`w-4 h-4 ${category.color}`} />
             <span class="font-mono text-sm font-semibold text-text-primary">{category.name}</span>
-            <span class="ml-auto text-[9px] px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-mono">
-              {category.skills.length}
-            </span>
           </div>
           
-          {/* Skills Grid */}
           <div class="p-4">
             <div class="flex flex-wrap gap-2">
               {category.skills.map((skill) => (
@@ -89,7 +85,6 @@ const skillCategories: SkillCategory[] = [
             </div>
           </div>
           
-          {/* Footer */}
 <div class="bg-surface/30 px-4 py-1.5 border-t border-primary/20">
   <div class="flex items-center gap-1 text-[9px] font-mono text-text-muted opacity-60">
     <Terminal class="w-2.5 h-2.5" />
